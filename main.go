@@ -11,7 +11,7 @@ func main(){
 
 	r.GET("/", routes.IndexHandler)
 
-	r.Static("/static", "./static")
+	r.Static("/static", "./static") // remember that the order to load static is important ... 
 	r.Run(":5000")
 }
 
