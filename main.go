@@ -11,6 +11,7 @@ func main(){
 
 	r.GET("/", routes.IndexHandler)
 
+	r.Static("/static", "./static")
 	r.Run(":5000")
 }
 

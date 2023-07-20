@@ -2,7 +2,10 @@ module github.com/SmokierLemur51/greenleafcleaning
 
 go 1.18
 
-require github.com/gin-gonic/gin v1.9.1
+require (
+	github.com/SmokierLemur51/greenleafcleaning/routes v0.0.0-20230717030030-19f15e6c519c
+	github.com/gin-gonic/gin v1.9.1
+)
 
 require (
 	github.com/bytedance/sonic v1.9.1 // indirect
