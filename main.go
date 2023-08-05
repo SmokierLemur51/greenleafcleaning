@@ -4,8 +4,9 @@ import (
 	"net/http"
 	"log"
 
-	"github.com/SmokierLemur51/greenleafcleaning/config"
-	"github.com/SmokierLemur51/greenleafcleaning/routes"
+	"github.com/SmokierLemur51/greenleafcleaning/v2/config"
+	"github.com/SmokierLemur51/greenleafcleaning/v2/routes"
+
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 )

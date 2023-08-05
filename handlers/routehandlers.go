@@ -4,9 +4,8 @@ import (
 	"net/http"
 	"log"
 
-	"github.com/SmokierLemur51/greenleafcleaning/models"
-	"github.com/SmokierLemur51/greenleafcleaning/models"
-	"github.com/SmokierLemur51/greenleafcleaning/utils"
+	"github.com/SmokierLemur51/greenleafcleaning/v2/models"
+	"github.com/SmokierLemur51/greenleafcleaning/v2/utils"
 )
 
 func IndexHandler(w http.ResponseWriter, r *http.Request) {

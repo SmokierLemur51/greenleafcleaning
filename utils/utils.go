@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"html/template"
 
-	"github.com/SmokierLemur51/chileaf/models"
+	"github.com/SmokierLemur51/greenleafcleaning/v2/models"
 )
 
 func RenderTemplate(w http.ResponseWriter, templateFile string, data models.PageData) error {
