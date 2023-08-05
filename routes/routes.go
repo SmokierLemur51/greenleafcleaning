@@ -1,22 +1,12 @@
 package routes
 
 import (
-	"net/http"
 
-	"github.com/gin-gonic/gin"
+	"github.com/go-chi/chi/v5"
+	"github.com/SmokierLemur51/greenleafcleaning/handlers"
 )
 
-func LoginHandler(c *gin.Context){
-	c.HTML(http.StatusOK, "login.html", gin.H{
-		"title": "Greenleaf Cleaning",
-	})
-}
 
-
-
-
-func IndexHandler(c *gin.Context){
-	c.HTML(http.StatusOK, "index.html", gin.H{
-		"title": "Greenleaf Cleaning",
-	})
+func ConfigureRoutes(router *chi.Mux) {
+	router.Get("/", handlers.IndexHandler)
 }
