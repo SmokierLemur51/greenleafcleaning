@@ -1,13 +1,21 @@
-package data 
+package data
 
 import "github.com/jmoiron/sqlx"
 
-
-
-
 func CreateTables(db *sqlx.DB) error {
-    tables := `        
-      CREATE TABLE IF NOT EXISTS sessions ();
+	tables := `       
+
+        CREATE TABLE IF NOT EXISTS contact_requests (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            deleted_at DATETIME,
+            contacted BOOLEAN,
+            name VARCHAR(100) NOT NULL,
+            phone VARCHAR(20) NOT NULL,
+            email VARCHAR(120),
+            message VARCHAR(666)
+        );
 
         CREATE TABLE IF NOT EXISTS contacts (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -72,9 +80,7 @@ func CreateTables(db *sqlx.DB) error {
             deleted_at DATETIME
         );
     `
-    db.MustExec(tables)
-    
-    return nil 
+	db.MustExec(tables)
+
+	return nil
 }
-
-
