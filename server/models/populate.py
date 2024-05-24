@@ -28,20 +28,6 @@ lansing_gutter_coil = [
     "victorian grey",
     "wicker",
 ]
-"""
-class Supplier(Base):
-    __tablename__ = "suppliers"
-
-    id: Mapped[int] = mapped_column(primary_key=True)
-    supplier: Mapped[str] = mapped_column(String(120), unique=True)
-    street: Mapped[str] = mapped_column(String(200))
-    street_2: Mapped[str] = mapped_column(String(200), nullable=True)
-    city: Mapped[str] = mapped_column(String(120))
-    state: Mapped[str] = mapped_column(String(20))
-    zip: Mapped[str] = mapped_column(String(20))
-    website_url: Mapped[str] = mapped_column(String(500), nullable=True)
-
-"""
 
 
 # populating functions start here
@@ -74,11 +60,13 @@ def populate_suppliers(db: SQLAlchemy) -> None:
             db.session.add_all(suppliers_list)
             db.session.commit()
         except Exception as e:
-           print(e)
+            db.session.rollback()
+            print(e)
 
 
-def populate_colors(db: SQLAlchemy, source: Supplier) -> None:
+def populate_colors(db: SQLAlchemy, colors: list, source: Supplier) -> None:
     lansing_id = db.session.scalars(
-        db.select(Supplier.id).where(
-            Supplier.supplier == "Lansing Building Products"))
+        db.select(Supplier.id).where(Supplier.supplier == "Lansing Building Products")).first()
+    for c in colors:
+        print(c)
     print(lansing_id)
