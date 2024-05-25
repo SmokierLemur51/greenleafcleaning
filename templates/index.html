@@ -5,18 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    
         {{ if .Title }}
         <title>{{ .Title }}</title>
         {{ else }}
-            <title>Greenleaf Gutters</title>
+            <title>GoGo-Gutters</title>
         {{ end }}
     </head>
     <body>
         <header>
             <!-- top navbar start -->
-            <nav class="navbar navbar-expand-lg color">
+            <nav class="navbar navbar-expand-lg nav-style" style="background-color: #3c277c;" >
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="/">Greenleaf Gutters</a>
+                    <a class="navbar-brand" href="/">GoGo-Gutters</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     </button>
@@ -27,25 +28,25 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="/reports">Reports</a>
+                                <a class="nav-link" aria-current="page" href="/cleaning">Cleaning</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="/about">About</a>
+                                <a class="nav-link" aria-current="page" href="/repairs">Repairs</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="/contact">Contact</a>
+                                <a class="nav-link" aria-current="page" href="/replacements">Replacements</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="/login">Login</a>
+                                <a class="nav-link" aria-current="page" href="/gutter-guards">Gutter Guards</a>
                             </li>
 
                         </ul>
                         <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
+                            <input class="form-control me-2" type="search" placeholder="Ask a Question" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Ask</button>
                         </form>
                     </div>
                 </div>
@@ -53,15 +54,24 @@
             <!-- top navbar end -->
         </header>
 
-        <br>
-
-        <main  style="height: 100vh;">
+        <main style="height: 100vh;background-color: #5e596e;" >
             <div class="container-lg">
                 <div class="card">
                     <div class="card-body">
-                        This is some text within a card body.
+                        <div class="row">
+                            <div class="col">
+
+                            </div>
+
+                            <div class="col">
+
+                            </div>
+                        <!-- end of row -->
+                        </div>
+
                     </div>
                 </div>
+            <!-- end of first section -->
             </div>
             <br>
             <div class="container-lg" >
@@ -72,7 +82,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Special title treatment</h5>
                         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="#" class="btn btn-primary test">Go somewhere</a>
                     </div>
                 </div>
             </div>

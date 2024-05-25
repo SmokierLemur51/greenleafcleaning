@@ -6,23 +6,26 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/SmokierLemur51/gutterboy/middleware"
+	// Internal packages
+	// "github.com/SmokierLemur51/gutterboy/middleware"
 
-	"github.com/joho/godotenv"
-
+	"github.com/go-chi/chi/v5"
 	"github.com/jmoiron/sqlx"
+	"github.com/joho/godotenv"
 	_ "github.com/mattn/go-sqlite3"
 )
 
 type CoreHandler struct {
-	Port string
-	DB   *sqlx.DB
+	Port   string
+	Router *chi.Mux
+	DB     *sqlx.DB
 }
 
 func NewCoreHandler() *CoreHandler {
-	return &CoreHandler{
-		Port: ":5000",
-	}
+	h := &CoreHandler{}
+	h.Port = ":5000"
+	h.Router = chi.NewRouter()
+	return h
 }
 
 func (h *CoreHandler) Run() error {
@@ -39,18 +42,10 @@ func (h *CoreHandler) Run() error {
 		return err
 	}
 
-	router := http.NewServeMux()
-	h.LoadRoutes(router)
-
-	stack := middleware.CreateStack(
-		middleware.Logging,
-	)
-
-	server := http.Server{
-		Addr:    h.Port,
-		Handler: stack(router),
-	}
+	h.Router.Handle(
+		"/static/*", http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
+	h.LoadRoutes()
 
 	log.Println("Starting server on port " + h.Port)
-	return server.ListenAndServe()
+	return http.ListenAndServe(h.Port, h.Router)
 }
