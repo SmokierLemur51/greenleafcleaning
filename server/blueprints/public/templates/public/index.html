@@ -7,20 +7,40 @@
 
 
 {% block navbar %}
-<nav class="navbar navbar-expand-lg paynes-gay-backdrop">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{{ url_for('public.index') }}">{{ elements['title'] }}</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+<!-- top navbar start -->
+<nav class="navbar navbar-expand-lg verdigris-backdrop" >
+  <div class="container-fluid">
+      <a class="navbar-brand" href="{{ url_for('public.index') }}">Go-Go Gutters</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link" href="{{ url_for('order.create') }}">Order Now</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-        </div>
+              <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="{{ url_for('public.cleaning') }}">Cleaning</a>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="{{ url_for('public.repairs') }}">Repairs</a>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="{{ url_for('public.replacements') }}">Replacements</a>
+              </li>
+
+              <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="{{ url_for('public.gutter_guards') }}">Gutter Guards</a>
+              </li>
+
+          </ul>
+          <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Ask a Question" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Ask</button>
+          </form>
       </div>
-    </div>
-  </nav>
+  </div>
+</nav>
 {% endblock navbar %}
 
 {% block main %}
@@ -29,14 +49,14 @@
 <div class="container-lg text-center">
   <div class="row align-items-start">
     <div class="col" style="color: white;">
-      <div class="card">
+      <div class="card paynes-gray-backdrop">
         <div class="card-body">
           This is some text within a card body.
         </div>
       </div>
     </div>
     <div class="col" style="color: white;">
-      <div class="card">
+      <div class="card paynes-gray-backdrop">
         <div class="card-body">
           This is some text within a card body.
         </div>
