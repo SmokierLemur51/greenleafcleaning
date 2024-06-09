@@ -5,33 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2e13836-867e-4962-8851-b3d8f2b52d42" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/blueprints/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/blueprints/order/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/blueprints/order/forms.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/blueprints/order/templates/order/create.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/blueprints/order/templates/order/order.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/blueprints/order/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/blueprints/public/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/blueprints/public/templates/public/404.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/blueprints/public/templates/public/500.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/blueprints/public/templates/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/blueprints/public/templates/public/public.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/blueprints/public/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/config.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/extensions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/factory.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/insert.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/queries.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/test/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/test/populate.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/settings.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/static/css/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/static/js/learn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

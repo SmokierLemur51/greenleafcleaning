@@ -13,7 +13,7 @@ async def configure_core_routes(app: Quart) -> None:
         return await render_template("services.html", elements=elements)
 
 
-async def configure_test_routes(app: Quart):
+async def configure_test_routes(app: Quart) -> None:
 
     @app.route("/schema/create")
     async def create_tables():
