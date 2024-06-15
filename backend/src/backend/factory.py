@@ -28,10 +28,9 @@ def create_app(**config_overrides):
     app.register_blueprint(public)
     app.register_blueprint(order)
 
-    # create database tables
     with app.app_context():
-        # db.drop_all()
+        db.drop_all()
         db.create_all()
         
     # send that sucker to the moon	
-        return app
+    return app

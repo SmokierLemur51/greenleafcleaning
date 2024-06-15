@@ -1,7 +1,8 @@
 from flask import current_app
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.exc import IntegrityError
 
-from .models import Supplier
+from ..models import Supplier, ColorOption, CoilOption, Accessory
 
 # Some lists of known colors and respective suppliers
 lansing_gutter_coil = [
@@ -64,9 +65,103 @@ def populate_suppliers(db: SQLAlchemy) -> None:
             print(e)
 
 
-def populate_colors(db: SQLAlchemy, colors: list, source: Supplier) -> None:
-    lansing_id = db.session.scalars(
-        db.select(Supplier.id).where(Supplier.supplier == "Lansing Building Products")).first()
+def populate_colors(db: SQLAlchemy) -> None:
+    lansing_gutter_coil = [
+        "30 deg white",
+        "almond",
+        "black",
+        "cameo",
+        "charcoal grey",
+        "classic cream",
+        "dark bronze",
+        "desert sand",
+        "everest",
+        "evergreen",
+        "harbor grey",
+        "linen",
+        "montana suede",
+        "musket brown",
+        "pebblestone clay",
+        "royal brown",
+        "rugged canyon",
+        "sandtone",
+        "silver grey",
+        "terra bronze",
+        "victorian grey",
+        "wicker",
+    ]
+    dump = []
+    lansing = db.session.scalars(
+        db.select(Supplier).where(Supplier.supplier == "Lansing Building Products")).first()
+    for c in lansing_gutter_coil:
+        dump.append(ColorOption(color=c, supplier_id=lansing.id))
+    with current_app.app_context():
+        try:
+            db.session.add_all(dump)
+            db.session.commit()
+        except IntegrityError:
+            db.session.rollback()
+            print(IntegrityError)
+
+
+def populate_coil_options(db: SQLAlchemy) -> None:
+    colors = db.session.scalars(db.select(ColorOption)).all()
+    dump = []
+
+    # five inch
     for c in colors:
-        print(c)
-    print(lansing_id)
+        dump.append(CoilOption(style="K-Style", size="Five Inch", color_id=c.id))
+        
+    # six inch
+    for c in colors:
+        dump.append(CoilOption(style="K-Style", size="Six Inch", color_id=c.id))   
+
+    with current_app.app_context():
+        try: 
+            db.session.add_all(dump)
+            db.session.commit()
+        except IntegrityError:
+            db.session.rollback()
+            print(IntegrityError)
+        
+
+def populate_accessories(db: SQLAlchemy) -> None:
+    colors = db.session.scalars(db.select(ColorOption)).all()
+    six = db.session.scalar(db.select(CoilOption).where(CoilOption.size == "Six Inch"))
+    five = db.session.scalar(db.select(CoilOption).where(CoilOption.size == "Five Inch"))
+
+    dump = []
+    # coil types
+    five_inch = [
+        "2x3 A", 
+        "2x3 B", 
+        "2x3 Downspout", 
+        "2x3 Ledge Jumper", 
+        "Left Endcap (5\")", 
+        "Right Endcap (5\")",
+    ]
+    six_inch = [
+        "3x4 A", 
+        "3x4 B", 
+        "3x4 Downspout", 
+        "3x4 Ledge Jumper", 
+        "Left Endcap (6\")", 
+        "Right Endcap (6\")",
+    ]
+    for c in colors:
+        # All colors, this should for sure be rechecked against Lansing Options
+        for f in five_inch:
+            dump.append(Accessory(color_id=c.id, coil_id=five.id, accessory=f))
+
+        for s in six_inch:
+            dump.append(Accessory(color_id=c.id, coil_id=six.id, accessory=s))
+    
+    with current_app.app_context():
+        try:
+            db.session.add_all(dump)
+            db.session.commit()
+        except IntegrityError:
+            db.session.rollback()
+            print(IntegrityError)
+        
+

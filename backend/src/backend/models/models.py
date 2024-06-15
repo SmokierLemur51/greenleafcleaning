@@ -1,4 +1,5 @@
 import datetime
+from typing import List
 
 from sqlalchemy import Boolean, DateTime, Float, ForeignKey, Integer, String
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
@@ -12,8 +13,6 @@ class Base(DeclarativeBase):
 
 
 db = SQLAlchemy(model_class=Base)
-
-
 
 
 # Supplier, 
@@ -33,12 +32,8 @@ class Supplier(Base):
     website_url: Mapped[str] = mapped_column(String(500), nullable=True)
 
 
-
-
-"""
-    ColorOption 
-        Have the color, and a FK to a Supplier obj. 
-"""
+# ColorOption 
+    # Have the color, and a FK to a Supplier obj. 
 class ColorOption(Base):
     __tablename__ = "color_options"
 
@@ -46,45 +41,46 @@ class ColorOption(Base):
     color: Mapped[str] = mapped_column(String(80), nullable=False)
     supplier_id: Mapped[int] = mapped_column(ForeignKey("suppliers.id"), nullable=False)
 
+    coil_options: Mapped[List["CoilOption"]] = relationship(back_populates="color")
+    accessories: Mapped[List["Accessory"]] = relationship(back_populates="color")
+
+    def __repr__(self) -> str:
+        return self.color
 
 
-"""
-    CoilOption, 
-        takes a supplier FK to later pack into GutterCoil obj for where you can get 
-        a specific gutter coil profile. 
-            Ex: Round, 5" Square, 5" K-Style
-"""
+# CoilOption, 
+#     takes a supplier FK to later pack into GutterCoil obj for where you can get 
+#     a specific gutter coil profile. 
+#         Ex: Round, 5" Square, 5" K-Style
 class CoilOption(Base):
     __tablename__ = "coil_options"
 
     id: Mapped[int] = mapped_column(primary_key=True)
+    style: Mapped[str] = mapped_column(String(100))
+    size: Mapped[str] = mapped_column(String(100))
+    color_id: Mapped[int] = mapped_column(ForeignKey("color_options.id"))
+
+    color: Mapped["ColorOption"] = relationship(back_populates="coil_options")
+    accessories: Mapped[List["Accessory"]] = relationship(back_populates="coil")
+
+    def __repr__(self) -> str:
+        return "{}-{}".format(self.size, self.profile)
 
 
 
-
-"""
-    AccessoryType
-        Elbows, downspouts, etc. 
-        FK to a CoilOption obj
-"""
-class AccessoryType(Base):
-    __tablename__ = "accessory_types"
-
-    id: Mapped[int] = mapped_column(primary_key=True)
-
-
-
-
-"""
-    GutterCoil
-        This object is what will pack together color, profile, and supplier
-        to create a listing for webtraffic to view. 
-            FK to Supplier, ColorOption, and CoilOption obj.
-"""
-class GutterCoil(Base):
-    __tablename__ = "gutter_coils"
+class Accessory(Base):
+    __tablename__ = "accessories"
 
     id: Mapped[int] = mapped_column(primary_key=True)
+    color_id: Mapped[int] = mapped_column(ForeignKey("color_options.id"))
+    coil_id: Mapped[int] = mapped_column(ForeignKey('coil_options.id'))
+    accessory: Mapped[str] = mapped_column(String)
+    
+    color: Mapped["ColorOption"] = relationship(back_populates="accessories")
+    coil: Mapped["CoilOption"] = relationship(back_populates="accessories")
+
+    def __repr__(self) -> str:
+        return self.accessory
 
 
 
