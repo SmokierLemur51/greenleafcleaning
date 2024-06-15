@@ -15,12 +15,11 @@ db = SQLAlchemy(model_class=Base)
 
 
 
-"""
-    Supplier, 
-        Reliable gutter material suppliers. Will be used to:
-            - Plan material pickup/delivery routes
-            - Track material pricing via web scraping through url
-"""
+
+# Supplier, 
+#     Reliable gutter material suppliers. Will be used to:
+#         - Plan material pickup/delivery routes
+#         - Track material pricing via web scraping through url
 class Supplier(Base):
     __tablename__ = "suppliers"
 
