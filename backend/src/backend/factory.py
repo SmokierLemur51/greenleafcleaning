@@ -28,9 +28,9 @@ def create_app(**config_overrides):
     app.register_blueprint(public)
     app.register_blueprint(order)
 
-    with app.app_context():
-        db.drop_all()
-        db.create_all()
+    # with app.app_context():
+    #     db.drop_all()
+    #     db.create_all()
         
     # send that sucker to the moon	
     return app

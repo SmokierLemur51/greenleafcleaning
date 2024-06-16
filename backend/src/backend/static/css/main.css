@@ -20,3 +20,12 @@ Color Pallet 1
     background-color: #28AFB0;
 }
 
+.baby-blue {
+    background-color: #97cbea;
+}
+
+.baby-blue-button {
+    color: black;
+    background-color: #97cbea;
+    border-color: #97cbea;
+}

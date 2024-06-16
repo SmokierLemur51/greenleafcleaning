@@ -34,15 +34,24 @@ def internal_error(error):
 @public.route("/")
 def index():
     elements = {
-        "title": "Go-Go Gutters",
+        "title": os.environ["COMPANY"],
+        "company": os.environ["COMPANY"],
     }
     return render_template("index.html", elements=elements)
+
+
+@public.route("/about-us")
+def about():
+    elements = {
+        "title": os.environ["COMPANY"],
+    }
+    return render_template("about.html", elements=elements)
 
 
 @public.route("/contact-us")
 def contact():
     elements = {
-        "title": "Go-Go Gutters",
+        "title": os.environ["COMPANY"],
     }
     return render_template("contact.html", elements=elements)
 
@@ -50,15 +59,23 @@ def contact():
 @public.route("/cleaning")
 def cleaning():
     elements = {
-        "title": "Go-Go Gutters",
+        "title": os.environ["COMPANY"],
     }
     return render_template("cleaning.html", elements=elements)
+
+
+@public.route("/delivery")
+def delivery():
+    elements = {
+        "title": os.environ["COMPANY"],
+    }
+    return render_template("delivery.html", elements=elements)
 
 
 @public.route("/repairs")
 def repairs():
     elements = {
-        "title": "Go-Go Gutters",
+        "title": os.environ["COMPANY"],
     }
     return render_template("repairs.html", elements=elements)
 
@@ -66,7 +83,7 @@ def repairs():
 @public.route("/replacements")
 def replacements():
     elements = {
-        "title": "Go-Go Gutters",
+        "title": os.environ["COMPANY"],
     }
     return render_template("replacements.html", elements=elements)
 
@@ -76,7 +93,7 @@ def replacements():
 @public.route("/gutter-delivery")
 def gutter_delivery():
     elements = {
-        "title": "Go-Go Gutters",
+        "title": os.environ["COMPANY"],
     }
     return render_template("gutter_delivery.html", elements=elements)
 
@@ -85,6 +102,6 @@ def gutter_delivery():
 @public.route("/gutter-guards")
 def gutter_guards():
     elements = {
-        "title": "Go-Go Gutters",
+        "title": os.environ["COMPANY"],
     }
     return render_template("gutter_guards.html", elements=elements)
