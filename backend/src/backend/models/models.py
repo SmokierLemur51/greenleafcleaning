@@ -125,3 +125,21 @@ class ContactRequest(Base):
     def __repr__(self) -> str: 
         return "{} / {}-{}-{} / {}".format(self.name, self.phone[0:3], self.phone[3:6], self.phone[6:], self.email)
 
+
+
+class EstimateRequest(Base): 
+    __tablename__ = "estimate_requests"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    created_at: Mapped[datetime.datetime] = mapped_column(DateTime, default=func.now())
+    updated_at: Mapped[datetime.datetime] = mapped_column(DateTime, default=func.now())
+    deleted_at: Mapped[datetime.datetime] = mapped_column(DateTime, nullable=True) 
+    name: Mapped[str] = mapped_column(String(100), nullable=False)
+    phone: Mapped[str] = mapped_column(String(10), nullable=False)
+    email: Mapped[str] = mapped_column(String(100), nullable=True)
+    messsage: Mapped[str] = mapped_column(String(666), nullable=True)    
+    
+
+    def __repr__(self) -> str: 
+        return "{} / {}-{}-{} / {}".format(self.name, self.phone[0:3], self.phone[3:6], self.phone[6:], self.email)
+

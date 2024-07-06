@@ -34,7 +34,19 @@
               <li class="nav-item">
                   <a class="nav-link" aria-current="page" href="{{ url_for('public.gutter_guards') }}">Gutter Guards</a>
               </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{{ url_for('public.contact') }}">Contact Us</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{{ url_for('public.estimate') }}">Get Estimate</a>
+              </li>
 
+
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{{ url_for('public.about') }}">About Us</a>
+              </li>
           </ul>
 
       </div>
@@ -43,46 +55,34 @@
 {% endblock navbar %}
 
 {% block main %}
-<div class="container-lg text-center mt-4">
-  <div class="row align-items-start">
-    <div class="col"">
-      <div class="card">
-        <div class="card-body">
-          {{ elements['company'] }}, a full service gutter team for you.
-        </div>
-      </div>
-    </div>
-    <div class="col" style="color: white;">
-      <div class="card">
-        <div class="card-body">
-          Deliveries
-        </div>
-      </div>
-    </div>
-    <!-- div below is end of row -->
-  </div>
-</div>
 <br>
 <div class="container-lg" >
   <div class="card">
       <div class="card-header">
-      What We Offer
+      Our Mission
       </div>
       <div class="card-body">
-          <!-- begin row 1 -->
-          
-          <a href="{{ url_for('public.about') }}" class="btn btn-primary baby-blue-button mt-4">More About Us</a>
-
+          <p>
+            At {{ elements['company'] }}, we deliver quality services at competitive prices, striving to transform your house into a home. 
+            Our mission is to provide top-notch gutter solutions that ensure the safety and beauty of your property. We are dedicated to excellence in every project, 
+            offering reliable, efficient, and affordable services that exceed customer expectations.
+          </p>
+          <p>  
+            We believe in building lasting relationships through trust, integrity, and exceptional customer care. 
+            Our team is committed to using the best materials and latest techniques to protect your home from water damage, while enhancing its value and appeal. 
+            At {{ elements['company'] }}, your satisfaction is our priority, and we are here to support you every step of the way in maintaining a safe, beautiful, and comfortable home.
+          </p>
+          <div class="d-flex justify-content-center">
+            <a href="{{ url_for('public.about') }}" class="btn btn-primary baby-blue-button mt-4" style="width: 60%;">More About Us</a>
+          </div>
       </div>
-  </div>
-
-  <!-- end of large card -->
-  
+  </div>  
 </div>
 
-<div class="container-lg text-center mt-4">
+
+<div class="container-lg mt-4">
   <div class="row justify-content-around">
-    <div class="col">
+    <div class="col mt-3 d-flex justify-content-center">
       <div class="card" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title">Gutter Deliveries</h5>
@@ -94,7 +94,7 @@
       </div>
     </div>
 
-    <div class="col">
+    <div class="col mt-3 d-flex justify-content-center">
       <div class="card" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title">Gutter Cleaning</h5>
@@ -106,10 +106,10 @@
       </div>
     </div>
 
-    <div class="col">
+    <div class="col mt-3 d-flex justify-content-center">
       <div class="card" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title">Gutter Repairs</h5>
+          <h5 class="card-title">Gutter Repairs/Install</h5>
           <h6 class="card-subtitle mb-2 text-body-secondary"><a href="{{ url_for('public.repairs') }}" class="card-link">More Info</a></h6>
           <p class="card-text">Text, email, or schedule online.</p>
           <a href="#" class="btn btn-primary baby-blue-button">Text/Email</a>
@@ -119,5 +119,4 @@
     </div>
   </div>
 </div>
-
 {% endblock main %}

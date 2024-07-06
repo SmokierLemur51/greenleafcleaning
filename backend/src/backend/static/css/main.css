@@ -1,24 +1,19 @@
 
 /* 
-Color Pallet 1
--1F271B
--19647E
--28AFB0
--F4D35E
--EE964B
+Color Pallet Plan
+
+Main Baby Blue
+
+Complimentary Colors 
+    - Coral -> eaa897
+    - Pale Yellow ->    eae997
+
+    More Pale Yellow Options
+    - fcfbb3
+    - fdfdda
 */
 
-.paynes-gray-backdrop {
-    background-color: #19647E;
-}
 
-.black-olive-backdrop {
-    background-color: #1F271B;
-}
-
-.verdigris-backdrop {
-    background-color: #28AFB0;
-}
 
 .baby-blue {
     background-color: #97cbea;
@@ -28,4 +23,22 @@ Color Pallet 1
     color: black;
     background-color: #97cbea;
     border-color: #97cbea;
+}
+
+.coral-button {
+    color: black;
+    background-color: #eaa897;
+    border-color: #eaa897;
+}
+
+.pale-yellow-button {
+    color: black;
+    background-color: #eae997;
+    border-color: #eae997;
+}
+
+
+.pale-yellow-row {
+    background-color: #fdfdda;
+    padding: 10px;
 }
